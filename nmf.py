@@ -1,6 +1,5 @@
-""" Non-negative matrix factorization (tensorflow)
-"""
-# Author: Euisung Kim <eesungk@gmail.com>
+""" Non-negative matrix factorization (tensorflow)"""
+# Author: Eesung Kim <eesungk@gmail.com>
 
 
 import tensorflow as tf
@@ -14,9 +13,6 @@ class NMF:
         self.learning_rate= learning_rate
         self.display_step = display_step
         self.optimizer = optimizer
-
-
-
 
     def NMF(self, X, r_components, learning_rate, max_iter, display_step, optimizer, initW, givenW ):
         m,n=np.shape(X)
@@ -73,20 +69,17 @@ class NMF:
 
     def fit_transform(self, X,r_components, initW, givenW):
         """Transform input data to W, H matrices which are the non-negative matrices."""
-
         W, H =  self.NMF(X=X, r_components = r_components, learning_rate=self.learning_rate, 
-                    max_iter = self.max_iter, display_step = self.display_step, optimizer=self.optimizer,
-                    initW=initW, givenW=givenW  )
+                    max_iter = self.max_iter, display_step = self.display_step, 
+                    optimizer=self.optimizer, initW=initW, givenW=givenW  )
         return W, H
 
     def inverse_transform(self, W, H):
         """Transform data back to its original space."""
         return np.matmul(W,H)
 
-
 def main():
     V = np.array([[1, 1], [2, 1], [3, 1.2], [4, 1], [5, 0.8], [6, 1]])
-    
     model = NMF(max_iter=200,learning_rate=0.01,display_step=10, optimizer='mu')
     W, H = model.fit_transform(V, r_components=2, initW=False, givenW=0)
     print(W)
