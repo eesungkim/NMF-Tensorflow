@@ -1,9 +1,8 @@
 """ Non-negative matrix factorization (tensorflow)"""
 # Author: Eesung Kim <eesungk@gmail.com>
 
-
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
 
 class NMF:
     """Compute Non-negative Matrix Factorization (NMF)"""
@@ -20,7 +19,6 @@ class NMF:
         V = tf.placeholder(tf.float32) 
 
         initializer = tf.random_uniform_initializer(0,1)
-
         if initW is False:
             W =  tf.get_variable(name="W", shape=[m, r_components], initializer=initializer)
             H =  tf.get_variable("H", [r_components, n], initializer=initializer)
