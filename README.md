@@ -1,7 +1,8 @@
 # NMF-Tensorflow
-Non-negative Matrix Factorization (NMF) Tensorflow Implementation
+Non-negative Matrix Factorization (NMF) Tensorflow Implementation.
 
-# Examples
+
+## Examples
 ```
 >>> import numpy as np
 >>> from nmf import NMF
@@ -11,3 +12,11 @@ Non-negative Matrix Factorization (NMF) Tensorflow Implementation
 >>> print(V)
 >>> print(model.inverse_transform(W, H))
 ```
+
+## Optimization
+- Gradient Descent with Multiplicative Update Rule
+- Projected Gradient
+
+## TODO:
+- [ ] Sparse NMF
+- [ ] Discriminant NMF
